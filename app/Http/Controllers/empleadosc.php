@@ -1,5 +1,4 @@
 <?php 
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -42,10 +41,23 @@ class empleadosc extends Controller
              'edad'=>'required|integer|min:18',
              'direccion'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú,.,#]+$/'],
              'telefono'=>['regex:/^[0-9]{10}/'],         
-             'correo'=>'required|email',      
+             'correo'=>'required|email',
+             'archivo'=>'image|mimes:jpg,png,gif'      
          ]);
 
-        //echo "Listo para guardar";
+        $file = $request->file('archivo');
+        if($file!="")
+        {
+        $ldate = date('Ymd_His_');
+        $img = $file->getClientOriginalName();
+        $img2 = $ldate.$img;
+        \Storage::disk('local')->put($img2, \File::get($file));
+        }
+        else
+        {
+            $img2 = 'sinfoto.png';
+        }
+
         $emp = new empleados;
         $emp->id_empleado = $request->id_empleado; 
         $emp->tipo = $request->tipo;
@@ -56,7 +68,9 @@ class empleadosc extends Controller
         $emp->sexo = $request->sexo;  
         $emp->direccion = $request->direccion;
         $emp->telefono = $request->telefono; 
-        $emp->correo = $request->correo; 
+        $emp->correo = $request->correo;
+        $emp->activo = $request->activo;
+        $emp->archivo = $img2; 
         $emp->save();
 
         $proceso = "Alta empleado";
@@ -64,4 +78,10 @@ class empleadosc extends Controller
         return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 
     } 
+       public function reporteempleado()
+    {
+        $empleados=empleados::orderBy('id_empleado','asc')->get();
+        return view('sistema.reporteempleado')->with('empleados',$empleados);
+
+    }
 }

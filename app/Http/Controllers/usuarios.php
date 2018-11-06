@@ -36,16 +36,22 @@ class usuarios extends Controller
          ]);
 
         //echo "Listo para guardar";
-        $emp = new users;
-        $emp->id = $request->id; 
-        $emp->name = $request->name;
-        $emp->email = $request->email;
-        $emp->password = $request->password; 
-        $emp->save();
+        $usu = new users;
+        $usu->id = $request->id; 
+        $usu->name = $request->name;
+        $usu->email = $request->email;
+        $usu->password = $request->password; 
+        $usu->save();
 
         $proceso = "Alta usuario";
         $mensaje = "Regristro guardado";
         return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 
     } 
+      public function reporteusuario()
+    {
+        $users=users::orderBy('id','asc')->get();
+        return view('sistema.reporteusuario')->with('users',$users);
+
+    }
 }

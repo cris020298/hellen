@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 @extends('sistema.principal')
     <title>Productos</title>
 @section('contenido')
 
+=======
+<!DOCTYPE html>
+<html>
+<head>
+	 
+</head> 
+<body>
+>>>>>>> c8ec18d6a1f28f42b27bfc2f2cc1c5b31d69432a
 <h1>Alta Productos</h1>
 
 <form action = "{{route('guardaproducto')}}" method="POST" enctype='multipart/form-data'>
@@ -53,11 +62,12 @@ Precio:
 @endif     <br>
 Existencia: <input type='number' name='existencia' class="form-control" value="{{old('existencia')}}">
 <br>
+
 <br>
 Activo: <input type='radio' name='activo' value='SI' checked>SI
 <input type='radio' name='activo' value='NO'>NO
 <br>
-<br>
+
 @if($errors->first('archivo'))
 <i> {{ $errors->first('archivo')}}</i>
 @endif     <br>
@@ -65,8 +75,14 @@ Activo: <input type='radio' name='activo' value='SI' checked>SI
 Seleccione foto <input type='file' name='archivo'>
 </span>
 <br>
+<<<<<<< HEAD
 <br>
 <input type='submit' class="btn btn-info"  name='Guardar'>
+=======
+
+<input type='submit' name='Guardar'>
+
+>>>>>>> c8ec18d6a1f28f42b27bfc2f2cc1c5b31d69432a
 </form>
 
 @stop

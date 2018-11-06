@@ -45,19 +45,27 @@ class ventasc extends Controller
             
         ]);
 
-        
-
-        //echo "Listo para guardar";
-        $suc = new ventas;
-        $suc->id_sucursal = $request->id_sucursal; 
-        $suc->fecha_venta = $request->fecha_venta;
-        $suc->id_empleado = $request->id_empleado;
-        $suc->id_cliente = $request->id_cliente;
-        $suc->save();
+        $ven = new ventas;
+        $ven->id_venta = $request->id_venta; 
+        $ven->fecha_venta = $request->fecha_venta;
+        $ven->id_empleado = $request->id_empleado;
+        $ven->id_cliente = $request->id_cliente;
+        $ven->save();
 
         $proceso = "Alta venta";
         $mensaje = "Regristro guardado";
         return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+
+    }
+    public function reporteventa()
+    {
+        $resultado=\DB::select("SELECT v.id_venta,v.fecha_venta,e.nombre as e,c.nombre as c
+            FROM ventas AS v
+            INNER JOIN empleados AS e ON e.id_empleado = v.id_empleado
+            INNER JOIN clientes AS c ON c.id_cliente = v.id_empleado");
+
+        
+        return view('sistema.reporteventa')->with('ventas',$resultado);
 
     }
 }

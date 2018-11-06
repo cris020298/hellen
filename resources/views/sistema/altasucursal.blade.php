@@ -3,7 +3,7 @@
 <head>
 	<title></title>
 </head>
-<body>
+<body> 
 
 <h1>Alta Sucursal</h1>
 

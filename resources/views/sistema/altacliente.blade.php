@@ -56,7 +56,10 @@ Telefono: <input type='text' name='telefono' value="{{old('telefono')}}">
 @endif     <br>
 Correo: <input type='correo' name='correo' value="{{old('correo')}}">
 <br>
-
+<br>
+Activo: <input type='radio' name='activo' value='SI' checked>SI
+<input type='radio' name='activo' value='NO'>NO
+<br>
 <br>
 <input type='submit' name='Guardar'>
 

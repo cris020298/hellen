@@ -68,6 +68,17 @@ Correo: <input type='correo' name='correo' value="{{old('correo')}}">
 <br>
 
 <br>
+Activo: <input type='radio' name='activo' value='SI' checked>SI
+<input type='radio' name='activo' value='NO'>NO
+<br>
+
+@if($errors->first('archivo'))
+<i> {{ $errors->first('archivo')}}</i>
+@endif     <br>
+Seleccione foto: <input type='file' name='archivo'>
+<br>
+
+<br>
 <input type='submit' name='Guardar'>
 
 </form>
