@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-</head>
-<body>
+
 <h1>Alta Clientes</h1>
 
 <form action = "{{route('guardacliente')}}" method="POST" enctype='multipart/form-data'>

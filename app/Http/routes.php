@@ -36,3 +36,5 @@ Route::get('/reportesucursal','sucursalesc@reportesucursal');
 
 Route::get('/altaventa','ventasc@altaventa')->name('altaventa');
 Route::POST('/guardaventa','ventasc@guardaventa')->name('guardaventa');
+
+Route::get('/index','principalc@index')->name('index');
