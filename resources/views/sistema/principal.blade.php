@@ -1,6 +1,7 @@
 <HTML>
 <head>
 CSS, Jquery, Metas
+<link rel="stylesheet" href="{!! asset('css/estilos.css') !!}">
 </head>
 <body>
 <div  id= 'banner'>
