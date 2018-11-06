@@ -54,11 +54,18 @@ class clientesc extends Controller
         $clien->direccion = $request->direccion;
         $clien->telefono = $request->telefono; 
         $clien->correo = $request->correo; 
+        $clien->activo = $request->activo;
         $clien->save();
 
         $proceso = "Alta cliente";
         $mensaje = "Regristro guardado";
         return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+
+    }
+    public function reportecliente()
+    {
+        $clientes=clientes::orderBy('id_cliente','asc')->get();
+        return view('sistema.reportecliente')->with('clientes',$clientes);
 
     }
 }

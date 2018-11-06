@@ -2,7 +2,7 @@
 <html>
 <head>
 	 
-</head>
+</head> 
 <body>
 <h1>Alta Productos</h1>
 
@@ -50,17 +50,18 @@ Precio: <input type='text' name='precio' value="{{old('precio')}}">
 @endif     <br>
 Existencia: <input type='text' name='existencia' value="{{old('existencia')}}">
 <br>
+
 <br>
 Activo: <input type='radio' name='activo' value='SI' checked>SI
 <input type='radio' name='activo' value='NO'>NO
 <br>
-<br>
+
 @if($errors->first('archivo'))
 <i> {{ $errors->first('archivo')}}</i>
 @endif     <br>
 Seleccione foto: <input type='file' name='archivo'>
 <br>
-<br>
+
 <input type='submit' name='Guardar'>
 
 </form>
