@@ -1,5 +1,6 @@
 <HTML>
 <head>
+	<link rel="shortcut icon" href="{!! asset('recursos/images/icono.png') !!}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hellen West</title>
@@ -20,16 +21,71 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Panel de Administracion</a>
+                <a class="navbar-brand" href="{{URL::action('principalc@index')}}">Panel de Administracion</a>
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active"><a href="index.html"><i class="fa fa-bullseye"></i> Dashboard</a></li>
+                    <!-- <li class="active"><a href="index.html"><i class="fa fa-bullseye"></i> Dashboard</a></li> -->
 
-                    <li><a href="index.html"><i class="fa fa-bullseye"></i> Entradas </a></li>
-                    <li><a href="index.html"><i class="fa fa-bullseye"></i> Clientes </a></li> 
-                    <li><a href="index.html"><i class="fa fa-bullseye"></i> Empleados </a></li>                   
-                    <li><a href="index.html"><i class="fa fa-bullseye"></i> Sucursales </a></li>
+                    <li class="dropdown">
+                    	<a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bullseye"></i> Productos <span class="caret"></span></a>
+                    	   <ul class="dropdown-menu">
+                           <li><a href="{{URL::action('productosc@altaproducto')}}"> Alta Productos </a></li>
+                           <li><a href="{{URL::action('productosc@reporteproducto')}}">Reportes</a></li>
+                           <li class="divider"></li>
+<!--                            <li><a href="#"><i class="fa fa-power-off"></i> Cerrar Sesion</a></li> -->
+                       </ul>
+                    </li>
+                    <!--  -->
+                    <li class="dropdown">
+                    	<a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bullseye"></i> Clientes <span class="caret"></span></a>
+                    	<ul class="dropdown-menu">
+                        <li><a href="{{URL::action('clientesc@altacliente')}}"> Alta Clientes </a></li>
+                        <li><a href="{{URL::action('clientesc@reportecliente')}}">Reportes</a></li>
+                        <li class="divider"></li>
+                        <!-- <li><a href="#"><i class="fa fa-power-off"></i> Cerrar Sesion</a></li> -->
+                       </ul>
+                    </li>
+                     <!--  -->
+                    <li class="dropdown">
+                    	<a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bullseye"></i> Empleados <span class="caret"></span></a>
+                    	<ul class="dropdown-menu">
+                        <li><a href="{{URL::action('empleadosc@altaempleado')}}"> Alta Empleados </a></li>
+                        <li><a href="{{URL::action('empleadosc@reporteempleado')}}">Reportes</a></li>
+                        <li class="divider"></li>
+                        <!-- <li><a href="#"><i class="fa fa-power-off"></i> Cerrar Sesion</a></li> -->
+                       </ul>
+                    </li>
+                    <!--  -->
+                    <li class="dropdown">
+                    	<a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bullseye"></i> Sucursales <span class="caret"></span></a>
+                    	<ul class="dropdown-menu">
+                        <li><a href="{{URL::action('sucursalesc@altasucursal')}}"> Alta Sucursales </a></li>
+                        <li><a href="{{URL::action('sucursalesc@reportesucursal')}}">Reportes</a></li>
+                        <li class="divider"></li>
+                        <!-- <li><a href="#"><i class="fa fa-power-off"></i> Cerrar Sesion</a></li> -->
+                       </ul>
+                    </li>
+                     <!--  -->
+                    <li class="dropdown">
+                    	<a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bullseye"></i> Ventas <span class="caret"></span></a>
+                    	<ul class="dropdown-menu">
+                        <li><a href="{{URL::action('ventasc@altaventa')}}"> Alta Ventas </a></li>
+                        <li><a href="{{URL::action('ventasc@reporteventa')}}">Reportes</a></li>
+                        <li class="divider"></li>
+                        <!-- <li><a href="#"><i class="fa fa-power-off"></i> Cerrar Sesion</a></li> -->
+                       </ul>
+                    </li>
+                     <!--  -->
+                    <li class="dropdown">
+                    	<a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bullseye"></i> Usuarios <span class="caret"></span></a>
+                    	<ul class="dropdown-menu">
+                        <li><a href="{{URL::action('usuarios@altausuarios')}}"> Alta Usuarios </a></li>
+                        <li><a href="{{URL::action('usuarios@reporteusuario')}}">Reportes</a></li>
+                        <li class="divider"></li>
+                        <!-- <li><a href="#"><i class="fa fa-power-off"></i> Cerrar Sesion</a></li> -->
+                       </ul>
+                    </li>
 <!-- 
                     <li><a href="portfolio.html"><i class="fa fa-tasks"></i> Entradas </a></li>
                     <li><a href="blog.html"><i class="fa fa-globe"></i> Blog</a></li>

@@ -1,19 +1,22 @@
-<!DOCTYPE html>
+@extends('sistema.principal')
+    <title>Productos</title>
+@section('contenido')
 
-<html>
-<head>
-	<title></title>
-</head>
-<body>
 	<h1>Productos</h1>
 	<br>
-<table border= 1>
-	<tr>
+
+    <div class="row">
+	<div class="table-responsive">
+<table id="order_data" class="table table-bordered table-striped sui-table sui-hover sui-selectable">
+	<thead align="center">
+	<tr role="row" class="sui-columnheader">
 		<td>Clave</td><td>Modelo</td><td>Color</td><td>Numero</td><td>Estilo</td><td>Precio</td><td>Existencia</td><td>Foto<td>Acciones</td>
 		
 	</tr>
+</thead>
+<tbody class="sui-hide">
 @foreach($productos as $pro)
-<tr>
+<tr  class="sui-row" role="row">
 	<td>{{$pro->id_producto}}</td>	
 	<td>{{$pro->modelo}}</td>
 	<td>{{$pro->color}}</td>
@@ -29,7 +32,8 @@
 	
 </tr>
 @endforeach
+</tbody>
 </table>
+</div>
 	
-</body>
-</html>
+@stop

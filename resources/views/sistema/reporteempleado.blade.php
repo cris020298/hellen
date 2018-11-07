@@ -1,19 +1,19 @@
-<!DOCTYPE html>
-
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+@extends('sistema.principal')
+    <title>Clientes</title>
+@section('contenido')
 	<h1>Empleados</h1>
-	<br>
-<table border= 1>
-	<tr>
+    <div class="row">
+	<div class="table-responsive">
+<table id="order_data" class="table table-bordered table-striped sui-table sui-hover sui-selectable">
+	<thead align="center">
+	<tr role="row" class="sui-columnheader">
 		<td>Clave</td><td>Tipo</td><td>Nombre</td><td>Apellido Paterno</td><td>Apellido Materno</td><td>Edad</td><td>Sexo</td><td>DIreccion<td>Telefono</td><td>Correo</td>
 		
 	</tr>
+		</thead>
+<tbody class="sui-hide">
 @foreach($empleados as $emp)
-<tr>
+<tr  class="sui-row" role="row">
 	<td>{{$emp->id_empleado}}</td>	
 	<td>{{$emp->tipo}}</td>
 	<td>{{$emp->nombre}}</td>
@@ -30,6 +30,6 @@
 </tr>
 @endforeach
 </table>
+</div>
 	
-</body>
-</html>
+@stop
