@@ -4,3 +4,8 @@
 Homestead.yaml
 Homestead.json
 .env
+app/Http/routes.php
+*.php
+app/Http/routes.php
+resources/views/sistema/guardaproducto.blade.php
+resources/views/sistema/altaproducto.blade.php
