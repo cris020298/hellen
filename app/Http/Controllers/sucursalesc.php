@@ -39,7 +39,7 @@ class sucursalesc extends Controller
             'id_sucursal'=>'required|numeric',
             'nombre'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
             'direccion'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú,.,#]+$/'],
-            'telefono'=>['regex:/^[1-10,-,(,),#]+$/'], 
+            'telefono'=>'required|numeric', 
         ]);
 
         
@@ -99,7 +99,7 @@ class sucursalesc extends Controller
             // 'id_sucursal'=>'required|numeric',
             'nombre'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
             'direccion'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú,.,#]+$/'],
-            'telefono'=>['regex:/^[1-9,-,(,),#]+$/'],
+            'telefono'=>'required|numeric',
             
         ]);
 

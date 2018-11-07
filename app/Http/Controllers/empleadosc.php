@@ -40,7 +40,7 @@ class empleadosc extends Controller
              'apellido_m'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
              'edad'=>'required|integer|min:18',
              'direccion'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú,.,#]+$/'],
-             'telefono'=>['regex:/^[0-9]{10}/'],         
+             'telefono'=>'required|numeric',         
              'correo'=>'required|email',
              'archivo'=>'image|mimes:jpg,png,gif'      
          ]);
