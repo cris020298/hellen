@@ -10,7 +10,7 @@
 <table id="order_data" class="table table-bordered table-striped sui-table sui-hover sui-selectable">
 	<thead align="center">
 	<tr role="row" class="sui-columnheader">
-		<td>Clave</td><td>Nombre</td><td>Apellido Paterno</td><td>Apellido Materno</td><td>Edad</td><td>Sexo</td><td>DIreccion<td>Telefono</td><td>Correo</td>
+		<td>Clave</td><td>Nombre</td><td>Apellido Paterno</td><td>Apellido Materno</td><td>Edad</td><td>Sexo</td><td>Calle</td><td>Numero Interior</td><td>Numero Exterior</td><td>Colonia</td><td>Municipio</td><td>Estado</td><td>Codigo Postal</td><td>Telefono</td><td>Correo</td>
 		
 	</tr>
 	</thead>
@@ -24,7 +24,13 @@
 	<td>{{$cli->apellido_m}}</td>
 	<td>{{$cli->edad}}</td>
 	<td>{{$cli->sexo}}</td>
-	<td>{{$cli->direccion}}</td>
+	<td>{{$cli->calle}}</td>
+	<td>{{$cli->numeroint}}</td>
+	<td>{{$cli->numeroext}}</td>
+	<td>{{$cli->colonia}}</td>
+	<td>{{$cli->municipio}}</td>
+	<td>{{$cli->estado}}</td>
+	<td>{{$cli->codigopostal}}</td>
 	<td>{{$cli->telefono}}</td>
 	<td>{{$cli->correo}}</td>
 	

@@ -29,9 +29,9 @@ class usuarios extends Controller
         
         $this->validate($request,[
              'id'=>'required|numeric',
-             'name'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+             'name'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
              'email'=>'required|email',
-             'password'=>['regex:/^[A-Z,a-z,ñ,á,é,í,ó,ú,0-9]+$/'],         
+             'password'=>'required',['regex:/^[A-Z,a-z,ñ,á,é,í,ó,ú,0-9]+$/'],         
                    
          ]);
 

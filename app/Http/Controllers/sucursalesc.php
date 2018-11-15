@@ -31,26 +31,46 @@ class sucursalesc extends Controller
     {
         $id_sucursal = $request->id_sucursal;
         $nombre = $request->nombre;
-        $direccion = $request->direccion;
+        $calle = $request->calle;
+        $numeroint = $request->numeroint;
+        $numeroext = $request->numeroext;
+        $colonia = $request->colonia;
+        $municipio = $request->municipio;
+        $estado = $request->estado;
+        $codigopostal = $request->codigopostal;
         $telefono = $request->telefono;
+        $activo = $request->activo;
     
         
         $this->validate($request,[
             'id_sucursal'=>'required|numeric',
-            'nombre'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-            'direccion'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú,.,#]+$/'],
+            'nombre'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+            'calle'=>'required',['regex:/^[A-Z][A-Z,a-z, ,1-9,0,ñ,á,é,í,ó,ú,.,#]+$/'],
+            'numeroint'=>['regex:/^[A-Z,a-z, ,1-9,0,ñ,á,é,í,ó,ú,.,#,/]+$/'],
+            'numeroext'=>'required',['regex:/^[A-Z,a-z, ,1-9,0,ñ,á,é,í,ó,ú,.,#,/]+$/'],
+            'colonia'=>'required',['regex:/^[A-Z][A-Z,a-z, ,1-9,0,ñ,á,é,í,ó,ú,.,#]+$/'],
+            'municipio'=>'required',['regex:/^[A-Z][A-Z,a-z, ,1-9,0,ñ,á,é,í,ó,ú,.,#]+$/'],
+            'estado'=>'required',
+            'codigopostal'=>'required|numeric',
             'telefono'=>'required|numeric', 
         ]);
 
         
 
-        //echo "Listo para guardar";
+        
         $suc = new sucursales;
         $suc->id_sucursal = $request->id_sucursal; 
         $suc->nombre = $request->nombre;
-        $suc->direccion = $request->direccion;
+        $suc->calle = $request->calle;
+        $suc->numeroint = $request->numeroint;
+        $suc->numeroext = $request->numeroext;
+        $suc->colonia = $request->colonia;
+        $suc->municipio = $request->municipio;
+        $suc->estado = $request->estado;
+        $suc->codigopostal = $request->codigopostal;
         $suc->telefono = $request->telefono;
-        $suc->id_empleado = $request->id_empleado;
+        $suc->activo = $request->activo;
+       
         $suc->save();
 
         $proceso = "Alta sucursal";
@@ -61,29 +81,30 @@ class sucursalesc extends Controller
     }
       public function reportesucursal()
     {
-        $resultado=\DB::select("SELECT s.id_sucursal,s.nombre,s.direccion,s.telefono,e.nombre as e
-            FROM sucursales AS s
-            INNER JOIN empleados AS e ON e.id_empleado = s.id_empleado");
 
+
+      $sucursales=sucursales::orderBy('id_sucursal','asc')->get();
+        return view('sistema.reporte_sucursal')->with('sucursales',$sucursales);
+// e.  AS s  nombre as e INNER JOIN empleados AS e ON e.id_empleado = s.id_empleado
         // $sucursales=sucursales::orderBy('id_sucursal','asc')->get();
         
-        return view('sistema.reporte_sucursal')->with('sucursales',$resultado);
+      
 
     }
      public function modificasu($id_sucursal)
     {
         $sucursal = sucursales::where('id_sucursal','=',$id_sucursal)
                             ->get();
-        $id_empleado = $sucursal[0]->id_empleado;
-        $empleado = empleados::where('id_empleado','=',$id_empleado)->get();
-        $otrosempleados = empleados::where('id_empleado','!=',$id_empleado)
-                            ->get();
+        // $id_empleado = $sucursal[0]->id_empleado;
+        // $empleado = empleados::where('id_empleado','=',$id_empleado)->get();
+        // $otrosempleados = empleados::where('id_empleado','!=',$id_empleado)
+        //                     ->get();
         //return $sucros;
     return view('sistema.modificasucursal')
-    ->with('sucursal',$sucursal[0])
-    ->with('id_empleado',$id_empleado)
-    ->with('empleado',$empleado[0]->nombre)
-    ->with('otrosempleados',$otrosempleados);
+     ->with('sucursal',$sucursal[0]);
+    // ->with('id_empleado',$id_empleado)
+    // ->with('empleado',$empleado[0]->nombre)
+    // ->with('otrosempleados',$otrosempleados);
 
 
     }
@@ -91,15 +112,28 @@ class sucursalesc extends Controller
     {
         $id_sucursal = $request->id_sucursal;
         $nombre = $request->nombre;
-        $direccion = $request->direccion;
+        $calle = $request->calle;
+        $numeroint = $request->numeroint;
+        $numeroext = $request->numeroext;
+        $colonia = $request->colonia;
+        $municipio = $request->municipio;
+        $estado = $request->estado;
+        $codigopostal = $request->codigopostal;
         $telefono = $request->telefono;
+        $activo = $request->activo;
         
         $this->validate($request,[
             
             // 'id_sucursal'=>'required|numeric',
             'nombre'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-            'direccion'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú,.,#]+$/'],
-            'telefono'=>'required|numeric',
+            'calle'=>'required',['regex:/^[A-Z][A-Z,a-z, ,1-9,0,ñ,á,é,í,ó,ú,.,#]+$/'],
+            'numeroint'=>['regex:/^[A-Z,a-z, ,1-9,0,ñ,á,é,í,ó,ú,.,#,/]+$/'],
+            'numeroext'=>'required',['regex:/^[A-Z,a-z, ,1-9,0,ñ,á,é,í,ó,ú,.,#,/]+$/'],
+            'colonia'=>'required',['regex:/^[A-Z][A-Z,a-z, ,1-9,0,ñ,á,é,í,ó,ú,.,#]+$/'],
+            'municipio'=>'required',['regex:/^[A-Z][A-Z,a-z, ,1-9,0,ñ,á,é,í,ó,ú,.,#]+$/'],
+            'estado'=>'required',
+            'codigopostal'=>'required|regex:/^[0-9]{5}$/',
+            'telefono'=>'required|integer|Min:10|Max:10'
             
         ]);
 
@@ -109,9 +143,15 @@ class sucursalesc extends Controller
         $suc = sucursales::find($id_sucursal);
         $suc->id_sucursal = $request->id_sucursal; 
         $suc->nombre = $request->nombre;
-        $suc->direccion = $request->direccion;
-        $suc->telefono = $request->telefono; 
-        $suc->id_empleado = $request->id_empleado;
+        $suc->calle = $request->calle;
+        $suc->numeroint = $request->numeroint;
+        $suc->numeroext = $request->numeroext;
+        $suc->colonia = $request->colonia;
+        $suc->municipio = $request->municipio;
+        $suc->estado = $request->estado;
+        $suc->codigopostal = $request->codigopostal;
+        $suc->telefono = $request->telefono;
+        $suc->activo = $request->activo;
         $suc->save();
 
         $proceso = "MODIFICA Sucursal";

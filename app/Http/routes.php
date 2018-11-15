@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('principal');
 });
 
 
@@ -26,9 +26,9 @@ Route::get('/eliminapro/{id_producto}','productosc@eliminapro')->name('eliminapr
 Route::get('/altaempleado','empleadosc@altaempleado')->name('altaempleado');
 Route::POST('/guardaempleado','empleadosc@guardaempleado')->name('guardaempleado');
 Route::get('/reporteempleado','empleadosc@reporteempleado');
-// Route::get('/modificaemp/{id_empleado}','empleadosc@modificaemp')->name('modificaemp');
-// Route::POST('/guardamodificaemp','empleadosc@guardamodificaemp')->name('guardamodificaemp');
-// Route::get('/eliminaemp/{id_empleado}','empleadosc@eliminaemp')->name('eliminaemp');
+Route::get('/modificaemp/{id_empleado}','empleadosc@modificaemp')->name('modificaemp');
+Route::POST('/guardamodificaemp','empleadosc@guardamodificaemp')->name('guardamodificaemp');
+Route::get('/eliminaemp/{id_empleado}','empleadosc@eliminaemp')->name('eliminaemp');
 
 Route::get('/altasucursal','sucursalesc@altasucursal')->name('altasucursal');
 Route::POST('/guardasucursal','sucursalesc@guardasucursal')->name('guardasucursal');
@@ -42,7 +42,7 @@ Route::POST('/guardaventa','ventasc@guardaventa')->name('guardaventa');
 Route::get('/reporteventa','ventasc@reporteventa'); 
 
 
-Route::get('/index','principalc@index')->name('index');
+Route::get('/','principalc@index');
 
 
 Route::get('/altacliente','clientesc@altacliente')->name('altacliente');

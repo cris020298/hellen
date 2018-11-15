@@ -98,11 +98,11 @@ class productosc extends Controller
         $this->validate($request,[
             
              'id_producto'=>'required|numeric',
-             'modelo'=>['regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú,0-9]+$/'],
-             'color'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+             'modelo'=>'required',['regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú,0-9]+$/'],
+             'color'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
              'numero'=>'required|numeric',
-             'estilo'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-             'precio'=>['regex:/^[0-9]+[.][0-9]{2}$/'],
+             'estilo'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+             'precio'=>'required',['regex:/^[0-9]+[.][0-9]{2}$/'],
              'existencia'=>'required|numeric',
              'archivo'=>'image|mimes:jpg,png,gif'  
         ]);

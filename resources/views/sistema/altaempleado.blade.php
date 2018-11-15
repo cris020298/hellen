@@ -47,10 +47,40 @@ Sexo: <input type='radio' name='sexo' value='M' checked>M
 <input type='radio' name='sexo' value='F'>F
 <br>
 
-@if($errors->first('direccion'))
-<i> {{ $errors->first('direccion')}}</i>
+@if($errors->first('calle'))
+<i> {{ $errors->first('calle')}}</i>
 @endif     <br>
-Direccion: <input type='text' name='direccion' value="{{old('direccion')}}" class="form-control">
+Calle: <input type='text' name='calle' value="{{old('calle')}}" class="form-control">
+<br>
+
+@if($errors->first('numeroint'))
+<i> {{ $errors->first('numeroint')}}</i>
+@endif     <br>
+Numero Interior: <input type='text' name='numeroint' value="{{old('numeroint')}}" class="form-control">
+<br>
+
+@if($errors->first('numeroext'))
+<i> {{ $errors->first('numeroext')}}</i>
+@endif     <br>
+Numero Exterior: <input type='text' name='numeroext' value="{{old('numeroext')}}" class="form-control">
+<br>
+
+@if($errors->first('colonia'))
+<i> {{ $errors->first('colonia')}}</i>
+@endif     <br>
+Colonia: <input type='text' name='colonia' value="{{old('colonia')}}" class="form-control">
+<br>
+
+@if($errors->first('municipio'))
+<i> {{ $errors->first('municipio')}}</i>
+@endif     <br>
+Municipio: <input type='text' name='municipio' value="{{old('municipio')}}" class="form-control">
+<br>
+
+@if($errors->first('estado'))
+<i> {{ $errors->first('estado')}}</i>
+@endif     <br>
+Estado: <input type='text' name='estado' value="{{old('estado')}}" class="form-control">
 <br>
 
 @if($errors->first('telefono'))
@@ -68,6 +98,14 @@ Correo: <input type='correo' name='correo' value="{{old('correo')}}" class="form
 <br>
 Activo: <input type='radio' name='activo' value='SI' checked>SI
 <input type='radio' name='activo' value='NO'>NO
+<br>
+
+<br>
+Selecciona Sucursal: <select name='id_sucursal' class="form-control">
+	@foreach($sucursales as $suc)
+	<option value='{{$suc->id_sucursal}}'>{{$suc->nombre}}</option>
+	@endforeach
+</select>
 <br>
 
 @if($errors->first('archivo'))
